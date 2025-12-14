@@ -1,0 +1,75 @@
+project:
+  name: 'UrbanNav_Citywalk'
+  run_name: 'teleop_test'
+  result_dir: 'results'
+
+training:
+  batch_size: 16
+  max_epochs: 10
+  gpus: 1
+  amp: false
+  normalize_step_length: false
+  resume: false
+  direction_loss_weight: 5.0
+  feature_loss_weight: 0.1
+  arrived_loss_weight: 1.0
+
+scheduler:
+  name: 'cosine'
+  step_size: 10
+  gamma: 0.1
+
+optimizer:
+  name: 'adamw'
+  lr: 5e-5
+
+model:
+  type: 'deepwalker'
+  do_rgb_normalize: true
+  do_resize: true
+  obs_encoder:
+    type: 'dinov2_vitb14'
+    context_size: 5
+    crop: [400, 400]
+    resize: [350, 350]
+    freeze: true
+  output_coordinate_repr: 'euclidean'
+
+  cord_embedding:
+    type: 'input_target'
+    num_freqs: 6
+    include_input: true
+
+  encoder_feat_dim: 768
+
+  decoder:
+    type: 'attention'
+    len_traj_pred: 5
+    num_heads: 8
+    num_layers: 16
+    ff_dim_factor: 4
+
+data:
+  type: teleop
+  image_root_dir: 'dataset/teleop/obs'
+  pose_dir: 'dataset/teleop/pose_label'
+  num_workers: 15
+  pose_fps: 5
+  video_fps: 30
+  target_fps: 1
+  num_train: 8
+  num_val: 1
+  num_test: 9
+  input_noise: 0.1 # sigma (after normalization)
+  search_window: 50 # frames
+  arrived_threshold: 5 # num frame
+  arrived_prob: 0.3
+
+validation:
+  num_visualize: 0
+testing:
+  num_visualize: 0
+
+logging:
+  enable_wandb: false  # Set to false to disable Wandb logging
+  pbar_rate: 1

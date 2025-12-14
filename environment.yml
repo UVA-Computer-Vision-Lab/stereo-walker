@@ -1,0 +1,21 @@
+name: citywalker
+channels:
+  - nvidia
+  - pytorch
+  - xformers
+  - defaults
+dependencies:
+  - python
+  - pip
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.1
+  - xformers
+  - pip:
+      - PyYAML
+      - numpy
+      - matplotlib
+      - scipy
+      - pytorch-lightning
+      - wandb
+      - decord

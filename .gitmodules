@@ -1,0 +1,6 @@
+[submodule "MonSter-plusplus"]
+	path = MonSter-plusplus
+	url = https://github.com/Junda24/MonSter-plusplus.git
+[submodule "Depth-Anything-V2"]
+	path = Depth-Anything-V2
+	url = https://github.com/Smirkkkk/Depth-Anything-V2.git
