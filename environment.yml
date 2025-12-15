@@ -1,4 +1,4 @@
-name: citywalker
+name: stereowalker
 channels:
   - nvidia
   - pytorch
