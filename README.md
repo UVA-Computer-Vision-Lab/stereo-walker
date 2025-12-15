@@ -17,6 +17,12 @@ If you find this code useful, please consider citing:
 }
 ```
 
+## Updates
+
+- [x] Inference code released
+- [ ] Training code (to be released)
+- [ ] Training data and benchmark (to be released)
+
 ## Installation
 
 The project is tested with Python 3.11, PyTorch 2.5.0, and CUDA 12.1. Install dependencies with:
