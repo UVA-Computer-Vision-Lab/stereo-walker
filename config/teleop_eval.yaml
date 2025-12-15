@@ -1,5 +1,5 @@
 project:
-  name: 'UrbanNav_Citywalk'
+  name: 'StereoWalker'
   run_name: 'teleop_test'
   result_dir: 'results'
 
@@ -24,7 +24,7 @@ optimizer:
   lr: 5e-5
 
 model:
-  type: 'deepwalker'
+  type: 'stereowalker'
   do_rgb_normalize: true
   do_resize: true
   obs_encoder:
@@ -72,4 +72,4 @@ testing:
 
 logging:
   enable_wandb: false  # Set to false to disable Wandb logging
-  pbar_rate: 1
+  pbar_rate:

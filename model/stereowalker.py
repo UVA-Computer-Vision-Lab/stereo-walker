@@ -6,7 +6,7 @@ import torchvision.transforms as transforms
 from einops.layers.torch import Rearrange
 from einops import rearrange, repeat
 from efficientnet_pytorch import EfficientNet
-from model.model_utils import PolarEmbedding, FeatTransformer, FeatPredictor, Tracktention
+from model.model_utils import PolarEmbedding, FeatTransformer, Tracktention
 from torchvision import models
 import pickle
 import sys
@@ -33,7 +33,7 @@ class TinyDepthEncoder(nn.Module):
         return feat
 
 
-class DeepWalker(nn.Module):
+class StereoWalker(nn.Module):
     def __init__(self, cfg):
         super().__init__()
         self.context_size = cfg.model.obs_encoder.context_size
@@ -182,6 +182,7 @@ class DeepWalker(nn.Module):
             }
             
             ckpt_name = encoder_to_ckpt.get(self.obs_encoder_type, "depth_anything_v2_metric_vkitti_vitb.pth")
+            # Change to your own path
             depth_metric_ckpt = f'/bigtemp/tsx4zn/stereo-walker/Depth-Anything-V2/metric_depth/checkpoints/{ckpt_name}'
             
             if os.path.exists(depth_metric_ckpt):

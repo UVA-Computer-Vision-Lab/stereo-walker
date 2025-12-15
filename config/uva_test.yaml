@@ -1,6 +1,6 @@
 project:
-  name: 'UrbanNav_Citywalk'
-  run_name: 'uva_new_test'
+  name: 'StereoWalker'
+  run_name: 'uva_test'
   result_dir: 'results'
 
 training:
@@ -24,16 +24,14 @@ optimizer:
   lr: 1e-4
 
 model:
-  type: 'citywalker_feat' 
+  type: 'stereowalker' 
   do_rgb_normalize: true
   do_resize: true
   obs_encoder:
     type: 'dinov2_vitb14'
     context_size: 5
-    # crop: [350, 350]
-    # resize: [350, 350]
-    crop: [350, 630]
-    resize: [350, 630]
+    crop: [350, 350]
+    resize: [350, 350]
     freeze: true
   output_coordinate_repr: 'euclidean'
 

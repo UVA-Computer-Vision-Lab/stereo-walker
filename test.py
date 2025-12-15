@@ -4,16 +4,9 @@ import pytorch_lightning as pl
 import argparse
 import yaml
 import os
-from pl_modules.citywalk_datamodule import CityWalkDataModule
-from pl_modules.citywalk_feat_datamodule import CityWalkFeatDataModule
-from pl_modules.stereowalk_datamodule import StereoWalkDataModule
-from pl_modules.monowalk_datamodule import MonoWalkDataModule
 from pl_modules.teleop_datamodule import TeleopDataModule
 from pl_modules.uva_datamodule import UVADataModule
-from pl_modules.stereowalk_labeled_datamodule import StereoWalkLabeledDataModule
-from pl_modules.citywalker_module import CityWalkerModule
-from pl_modules.citywalker_feat_module import CityWalkerFeatModule
-from pl_modules.socialwalker_module import SocialWalkerModule
+from pl_modules.stereowalker_module import StereoWalkerModule
 import torch
 import glob
 

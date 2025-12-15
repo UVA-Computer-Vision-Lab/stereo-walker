@@ -1,6 +1,5 @@
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
-# from data.citywalk_dataset import CityWalkDataset
 from data.teleop_dataset import TeleopDataset
 
 class TeleopDataModule(pl.LightningDataModule):

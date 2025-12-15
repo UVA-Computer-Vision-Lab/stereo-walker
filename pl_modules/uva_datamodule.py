@@ -1,7 +1,6 @@
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader, Dataset
 import torch
-# from data.citywalk_dataset import CityWalkDataset
 from data.uva_dataset import UVAData
 
 class EmptyDataset(Dataset):

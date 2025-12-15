@@ -110,18 +110,6 @@ class MultiLayerDecoder(nn.Module):
             x = F.relu(x)
         return x
     
-class FeatPredictor(nn.Module):
-    def __init__(self, embed_dim=512, seq_len=6, nhead=8, num_layers=8, ff_dim_factor=4):
-        super().__init__()
-        self.positional_encoding = PositionalEncoding(embed_dim, max_seq_len=seq_len)
-        self.sa_layer = nn.TransformerEncoderLayer(d_model=embed_dim, nhead=nhead, dim_feedforward=ff_dim_factor*embed_dim, activation="gelu", batch_first=True, norm_first=True)
-        self.sa_decoder = nn.TransformerEncoder(self.sa_layer, num_layers=num_layers)
-    
-    def forward(self, x):
-        if self.positional_encoding: x = self.positional_encoding(x)
-        x = self.sa_decoder(x)
-        return x
-    
 class FeatTransformer(nn.Module):
     def __init__(self, embed_dim=512, nhead=8, num_layers=8, ff_dim_factor=4):
         super().__init__()
